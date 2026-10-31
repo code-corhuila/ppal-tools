@@ -1,39 +1,19 @@
 # ppal-tools
 
-Paquete de herramientas compartidas que puede usar el proyecto.
+Shared development tooling that may support the PantryPal repositories.
 
-Forma parte del proyecto **PantryPal** (`ppal`) — Ingeniería para el Desarrollo Móvil (posgrado) · CORHUILA 2026-B.
+## Purpose
 
-| | |
-|---|---|
-| Rol | Paquete de herramientas |
-| Contenerizado | Sí: se entrega con su `Dockerfile`. |
-| Gobierno y documentación | [`ppal-docs`](https://github.com/code-corhuila/ppal-docs) |
-| Backlog | GitHub Project `ppal-backlog` |
+This repository is for project tooling and automation. It is not a deployed PantryPal service and is not required as a runtime dependency for the accepted mobile MVP unless a specific tool is approved and documented.
 
-## Ramas
+## Repository workflow
 
-| Rama | Uso |
-|---|---|
-| `develop` | Integración (rama por defecto) |
-| `qa` | Pruebas |
-| `main` | Producción |
+This repository uses develop for integration, qa for verification, and main for approved releases. Submit changes through a short-lived feat/, fix/, chore/, or docs/ branch and a pull request. Do not commit directly to protected branches or use force-push.
 
-**Todo cambio a `develop`, `qa` o `main` entra por pull request.** Ninguna de las tres admite
-commits directos, force-push ni borrado (tampoco para administradores).
+## Shared project governance
 
-1. Trabajo diario: rama `feat/<tema>` o `fix/<tema>` desde `develop` → PR a `develop`.
-2. Promoción: PR `develop` → `qa` y PR `qa` → `main`.
-3. El PR a `main` necesita la aprobación del docente. La rama de trabajo se borra al fusionar.
+The authoritative scope, ADRs, API contract, and release process live in ppal-docs. Keep scripts, dependency versions, and usage instructions documented in English.
 
-## Repositorios del proyecto
+## Security
 
-| Repositorio | Rol |
-|---|---|
-| [`ppal-docs`](https://github.com/code-corhuila/ppal-docs) | Gobierno único del proyecto |
-| [`ppal-api`](https://github.com/code-corhuila/ppal-api) | Core de negocio (API) |
-| [`ppal-app`](https://github.com/code-corhuila/ppal-app) | Aplicación móvil |
-| [`ppal-portal`](https://github.com/code-corhuila/ppal-portal) | Portal web |
-| [`ppal-db`](https://github.com/code-corhuila/ppal-db) | Migraciones de base de datos |
-| [`ppal-infra`](https://github.com/code-corhuila/ppal-infra) | Infraestructura y orquestación |
-| [`ppal-tools`](https://github.com/code-corhuila/ppal-tools) | Paquete de herramientas |
+Never commit access tokens, credentials, keystores, environment files, or other secrets. Tooling that changes repositories or publishes artifacts must use the least privileges needed and be reviewed before use.
